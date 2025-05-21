@@ -1,11 +1,21 @@
 public class No {
-    public Integer conteudo;
-    public Integer NoEsq;
-    public Integer NoDir;
+    String valor;
+    No esquerda, direita;
 
-    public No(Integer conteudo, Integer noEsq, Integer noDir) {
-        this.conteudo = conteudo;
-        NoEsq = noEsq;
-        NoDir = noDir;
+    public No(String valor) {
+        this.valor = valor;
+        esquerda = direita = null;
+    }
+
+    public class Arvore {
+        No raiz;
+    }
+
+    public No getEsquerda() {
+        return esquerda;
+    }
+
+    public No getDireita() {
+        return direita;
     }
 }
