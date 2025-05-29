@@ -57,4 +57,33 @@ public class Arvore {
             if (atual.direita != null) contar.add(atual.direita);
         }
     }
+
+    public int contarNoFolhaRec(No no) {
+        if (no == null) return 0;
+        if (no.esquerda == null && no.direita == null) return 1;
+
+        return contarNoFolhaRec(no.esquerda) + contarNoFolhaRec(no.direita);
+    }
+
+    public int contarNoFolha(No raiz) {
+        if (raiz == null) return 0;
+
+        int contador = 0;
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        while (!fila.isEmpty()) {
+            No atual = fila.poll();
+
+            if (atual.esquerda == null && atual.direita == null) {
+                contador++;
+            }
+            if (atual.esquerda != null) fila.add(atual.esquerda);
+            if (atual.direita != null) fila.add(atual.direita);
+        }
+
+        return contador;
+    }
+
+
 }
